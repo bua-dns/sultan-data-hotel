@@ -1,0 +1,185 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix o: <http://omeka.org/s/vocabs/o#> .
+@prefix pro: <https://omeka-s-t1.berlin-university-collections.de/ns/pro#> .
+
+<https://omeka-s-t1.berlin-university-collections.de/ns/pro#> a owl:Ontology ;
+    dcterms:title "Provenance Research Ontology" ;
+    dcterms:description "Ontology for provenance related documentation" .
+
+### Classes
+
+pro:CulturalAsset a rdfs:Class ;
+    rdfs:label "Cultural Asset" ;
+    rdfs:comment "Cultural asset the provenance research is related to" ;
+    rdfs:domain o:Resource .
+
+pro:ProvenanceInformation a rdfs:Class ;
+    rdfs:label "Provenance Information" ;
+    rdfs:comment "Information about a cultural asset and its provenance" ;
+    rdfs:domain o:Resource .
+
+pro:ProvenanceStationInformation a rdfs:Class ;
+    rdfs:label "Provenance Station Information" ;
+    rdfs:comment "Information about the provenance of a cultural asset" ;
+    rdfs:domain o:Resource .
+
+pro:visualRepresentation a rdfs:Class ;
+    rdfs:label "Visual Representation" ;
+    rdfs:comment "Visual representation a cultural asset" ;
+    rdfs:domain o:Resource .
+
+### Properties
+
+#### General Properties
+
+pro:headerData a rdf:Property ;
+    rdfs:label "Header Data" ;
+    rdfs:comment "Metadata summary for display" ;
+    rdfs:domain o:Resource .
+
+pro:label a rdf:Property ;
+    rdfs:label "Label" ;
+    rdfs:comment "Freely chosen designation" ;
+    rdfs:domain o:Resource .
+
+pro:dateDisplay a rdf:Property ;
+    rdfs:label "Date Display" ;
+    rdfs:comment "Date in plain text for display" ;
+    rdfs:domain o:Resource .
+
+pro:date a rdf:Property ;
+    rdfs:label "Date" ;
+    rdfs:comment "Date in ISO 8601 format" ;
+    rdfs:domain o:Resource .
+
+pro:dateEarliest a rdf:Property ;
+    rdfs:label "Date Earliest" ;
+    rdfs:comment "Earliest possible date in ISO 8601 format" ;
+    rdfs:domain o:Resource .
+
+pro:dateLatest a rdf:Property ;
+    rdfs:label "Date Latest" ;
+    rdfs:comment "Latest possible date in ISO 8601 format" ;
+    rdfs:domain o:Resource .
+
+#### Cultural Asset Related Properties
+
+pro:caTitle a rdf:Property ;
+    rdfs:label "Cultural Asset Title" ;
+    rdfs:comment "Title of the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+pro:caCreator a rdf:Property ;
+    rdfs:label "Creator" ;
+    rdfs:comment "Creator of the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+pro:caLocation a rdf:Property ;
+    rdfs:label "Location" ;
+    rdfs:comment "Location of the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+pro:caOwner a rdf:Property ;
+    rdfs:label "Owner" ;
+    rdfs:comment "Owner of the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+pro:caPreviousOwner a rdf:Property ;
+    rdfs:label "Previous Owner" ;
+    rdfs:comment "Previous Owner of the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+pro:caDimensions a rdf:Property ;
+    rdfs:label "Dimensions" ;
+    rdfs:comment "Dimensions of the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+pro:caMaterialsTechnique a rdf:Property ;
+    rdfs:label "Materials and Technique" ;
+    rdfs:comment "Materials and technique used in the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+pro:caSignature a rdf:Property ;
+    rdfs:label "Signature" ;
+    rdfs:comment "Signature on the cultural asset" ;
+    rdfs:domain pro:CulturalAsset .
+
+#### Information Related Properties
+
+pro:infoSource a rdf:Property ;
+    rdfs:label "Source" ;
+    rdfs:comment "Source of the information" ;
+    rdfs:domain pro:ProvenanceInformation .
+
+pro:infoSourcePublication a rdf:Property ;
+    rdfs:label "Source Publication" ;
+    rdfs:comment "Source of the information from publication" ;
+    rdfs:domain pro:ProvenanceInformation .
+
+pro:infoSourceCitedPassage a rdf:Property ;
+    rdfs:label "Cited Passage in Source" ;
+    rdfs:comment "Cited passage in source of the information" ;
+    rdfs:domain pro:ProvenanceInformation .
+
+pro:infoArchivalReference a rdf:Property ;
+    rdfs:label "Archival Reference" ;
+    rdfs:comment "Reference to the archival source" ;
+    rdfs:domain pro:ProvenanceInformation .
+
+pro:infoSourceDate a rdf:Property ;
+    rdfs:label "Source Date" ;
+    rdfs:comment "Source date in ISO 8601 format for sorting" ;
+    rdfs:domain pro:ProvenanceInformation .
+
+pro:infoOnlineReference a rdf:Property ;
+    rdfs:label "Online Reference" ;
+    rdfs:comment "Online reference to the information" ;
+    rdfs:domain pro:ProvenanceInformation .
+
+pro:infoTranscript a rdf:Property ;
+    rdfs:label "Transcript" ;
+    rdfs:comment "Transcript of the information" ;
+    rdfs:domain pro:ProvenanceInformation .
+
+#### Provenance Station Related Properties
+
+pro:provenanceStationAcquistionType a rdf:Property ;
+    rdfs:label "Type of Acquisition" ;
+    rdfs:comment "Type of acquisition by the current owner" ;
+    rdfs:domain pro:ProvenanceStationInformation .
+
+#### Relational Properties
+
+pro:relatesToCulturalAsset a rdf:Property ;
+    rdfs:label "Relates To Cultural Asset" ;
+    rdfs:comment "Relates the provenance information to a cultural asset" ;
+    rdfs:domain o:ProvenanceInformation .
+
+#### Source Properties
+
+pro:sourceReference a rdf:Property ;
+    rdfs:label "Bibliographic Reference to Source" ;
+    rdfs:comment "Bibliographic reference source of the information" ;
+    rdfs:domain o:ProvenanceStationInformation .
+
+#### Image Properties
+
+pro:visualRepresentationCaption a rdf:Property ;
+    rdfs:label "Caption For Image" ;
+    rdfs:comment "Caption for the visual representation of the cultural asset" ;
+    rdfs:domain pro:visualRepresentation .
+
+pro:visualRepresentationCredits a rdf:Property ;
+    rdfs:label "Credits For Image" ;
+    rdfs:comment "Credit line for the visual representation of the cultural asset" ;
+    rdfs:domain pro:visualRepresentation .
+
+## BUG: should be pro:visualRepresentationCopyrightStatus
+pro:visualRepresentationCopyrightStatus a rdf:Property ;
+    rdfs:label "Copyright Status For Image" ;
+    rdfs:comment "Copyright status for the visual representation of the cultural asset" ;
+    rdfs:domain pro:visualRepresentation .
