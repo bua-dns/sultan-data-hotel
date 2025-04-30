@@ -1,0 +1,3 @@
+# About this repository
+
+This repository holds onotology files for the Sultan Data Hotel project. It's main purpose is to provide a task management facility via GitHub issues ...
